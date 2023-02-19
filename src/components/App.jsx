@@ -3,7 +3,6 @@ import { ContactList } from './ContactList/ContactList';
 import Form from './ContactForm/Form';
 import Filter from './Filter';
 import { Container, MainTitle, Title, Message } from './App.styled';
-import useLocalStorage from './hooks/useLocalStorage';
 import { useSelector } from 'react-redux';
 
 export function App() {
