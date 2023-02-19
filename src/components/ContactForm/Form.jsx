@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { Button } from 'components/ContactList/ContactList.styled';
 import { Label, Input } from 'components/Filter/Filter.styled';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
+import { addContact } from 'redux/store';
 
-export default function Form({ onSubmit }) {
+export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -18,7 +22,13 @@ export default function Form({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ name, number });
+    const newContact = {
+      id: nanoid(10),
+      name,
+      number,
+    };
+    console.log(newContact);
+    dispatch(addContact(newContact));
     setName('');
     setNumber('');
   };
