@@ -27,7 +27,6 @@ export default function Form() {
       name,
       number,
     };
-    console.log(newContact);
     dispatch(addContact(newContact));
     setName('');
     setNumber('');
