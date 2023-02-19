@@ -4,7 +4,7 @@ import { Label, Input } from 'components/Filter/Filter.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/store';
+import { addContact } from 'redux/contactsSlice';
 
 export default function Form() {
   const [name, setName] = useState('');
