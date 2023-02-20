@@ -5,8 +5,10 @@ import Filter from './Filter';
 import { Container, MainTitle, Title, Message } from './App.styled';
 import { useSelector } from 'react-redux';
 
+const selectContacts = state => state.contacts.contacts;
+
 export function App() {
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
   return (
     <Container>
