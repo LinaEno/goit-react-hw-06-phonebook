@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'components/ContactList/ContactList.styled';
 import { Label, Input } from 'components/Filter/Filter.styled';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
 import { addContact } from 'redux/contactsSlice';
 
 export default function Form() {
@@ -22,12 +20,8 @@ export default function Form() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newContact = {
-      id: nanoid(10),
-      name,
-      number,
-    };
-    dispatch(addContact(newContact));
+
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };
@@ -62,8 +56,3 @@ export default function Form() {
     </form>
   );
 }
-
-Form.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.number,
-};
