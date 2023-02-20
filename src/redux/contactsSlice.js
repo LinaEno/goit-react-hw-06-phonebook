@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { nanoid } from 'nanoid';
 
 const initialState = {
-  contacts: [
+  items: [
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
@@ -24,12 +24,12 @@ const contactsSlice = createSlice({
         };
       },
       reducer: (state, { payload }) => {
-        state.contacts = [payload, ...state.contacts];
+        state.items = [payload, ...state.items];
       },
     },
 
     deleteContact: (state, { payload }) => {
-      state.contacts = state.contacts.filter(contact => contact.id !== payload);
+      state.items = state.items.filter(item => item.id !== payload);
     },
     setFilter: (state, { payload }) => {
       state.filter = payload;

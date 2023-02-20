@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Button } from 'components/ContactList/ContactList.styled';
 import { Label, Input } from 'components/Filter/Filter.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
 
 export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -20,6 +22,16 @@ export default function Form() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const sameContact = contacts.some(
+      contact =>
+        contact.name.toLowerCase() === name.toLowerCase() ||
+        contact.number === number
+    );
+
+    if (sameContact) {
+      alert(`${sameContact.name} is already in contacts.`);
+      return;
+    }
 
     dispatch(addContact({ name, number }));
     setName('');
