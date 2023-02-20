@@ -2,8 +2,10 @@ import { Label, Input } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contactsSlice';
 
+const selectFilter = state => state.contacts.filter;
+
 const Filter = () => {
-  const filterContact = useSelector(state => state.contacts.filter);
+  const filterContact = useSelector(selectFilter);
   const dispatch = useDispatch();
   return (
     <Label>
