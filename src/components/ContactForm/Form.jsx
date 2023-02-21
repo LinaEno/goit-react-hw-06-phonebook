@@ -29,7 +29,7 @@ export default function Form() {
     );
 
     if (sameContact) {
-      alert(`${sameContact.name} is already in contacts.`);
+      alert(`${name} is already in contacts.`);
       return;
     }
 
