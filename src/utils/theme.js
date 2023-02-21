@@ -7,6 +7,7 @@ const theme = {
     background: '#000',
     borderBtn: '#afb7c2',
     hoverBgColor: '#93b9ee',
+    opacity: 'rgba(0, 0, 0, 0.1)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {},
