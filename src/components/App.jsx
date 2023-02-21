@@ -1,11 +1,9 @@
-// import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import Form from './ContactForm/Form';
 import Filter from './Filter';
 import { Container, MainTitle, Title, Message } from './App.styled';
 import { useSelector } from 'react-redux';
-
-const selectContacts = state => state.contacts.contacts;
+import { selectContacts } from 'redux/selectors';
 
 export function App() {
   const contacts = useSelector(selectContacts);
